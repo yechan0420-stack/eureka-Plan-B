@@ -935,6 +935,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710040386
+      },
+      {
+        "executionId": "633da53a-8ba7-499b-8f80-21cb35d69ecd",
+        "chatSessionId": "sess_0ead4c08-f43d-4128-ae2f-bc6cfd58c4cc",
+        "timestamp": 1795713559622
+      },
+      {
+        "executionId": "633da53a-8ba7-499b-8f80-21cb35d69ecd",
+        "chatSessionId": "sess_0ead4c08-f43d-4128-ae2f-bc6cfd58c4cc",
+        "timestamp": 1795713771400
       }
     ],
     "24.2 docs/setup-guide.md 작성": [
@@ -947,6 +957,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710049450
+      },
+      {
+        "executionId": "633da53a-8ba7-499b-8f80-21cb35d69ecd",
+        "chatSessionId": "sess_0ead4c08-f43d-4128-ae2f-bc6cfd58c4cc",
+        "timestamp": 1795713560829
+      },
+      {
+        "executionId": "633da53a-8ba7-499b-8f80-21cb35d69ecd",
+        "chatSessionId": "sess_0ead4c08-f43d-4128-ae2f-bc6cfd58c4cc",
+        "timestamp": 1795713772858
       }
     ],
     "24.3 docs/external-services.md 작성": [
@@ -959,6 +979,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710050083
+      },
+      {
+        "executionId": "633da53a-8ba7-499b-8f80-21cb35d69ecd",
+        "chatSessionId": "sess_0ead4c08-f43d-4128-ae2f-bc6cfd58c4cc",
+        "timestamp": 1795713561779
+      },
+      {
+        "executionId": "633da53a-8ba7-499b-8f80-21cb35d69ecd",
+        "chatSessionId": "sess_0ead4c08-f43d-4128-ae2f-bc6cfd58c4cc",
+        "timestamp": 1795713773945
       }
     ],
     "24.4 docs/aws-free-tier.md 작성": [
@@ -971,6 +1001,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710051458
+      },
+      {
+        "executionId": "633da53a-8ba7-499b-8f80-21cb35d69ecd",
+        "chatSessionId": "sess_0ead4c08-f43d-4128-ae2f-bc6cfd58c4cc",
+        "timestamp": 1795713563252
+      },
+      {
+        "executionId": "633da53a-8ba7-499b-8f80-21cb35d69ecd",
+        "chatSessionId": "sess_0ead4c08-f43d-4128-ae2f-bc6cfd58c4cc",
+        "timestamp": 1795713775244
       }
     ],
     "24.5 docs/cost-and-budgets.md 작성": [
@@ -983,6 +1023,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710052418
+      },
+      {
+        "executionId": "633da53a-8ba7-499b-8f80-21cb35d69ecd",
+        "chatSessionId": "sess_0ead4c08-f43d-4128-ae2f-bc6cfd58c4cc",
+        "timestamp": 1795713564199
+      },
+      {
+        "executionId": "633da53a-8ba7-499b-8f80-21cb35d69ecd",
+        "chatSessionId": "sess_0ead4c08-f43d-4128-ae2f-bc6cfd58c4cc",
+        "timestamp": 1795713775984
       }
     ],
     "25.1 프론트엔드 빌드·타입 검사": [
@@ -995,6 +1045,21 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710061953
+      },
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795713874941
+      },
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795713894406
+      },
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795714113703
       }
     ],
     "25.2 백엔드 테스트 실행": [
@@ -1007,6 +1072,31 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710062731
+      },
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795713875151
+      },
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795714117319
+      },
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795714410906
+      },
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795714973308
+      },
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795715256869
       }
     ],
     "25.3 SAM 로컬 검증": [
@@ -1019,6 +1109,21 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710064250
+      },
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795713875508
+      },
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795715260218
+      },
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795715413789
       }
     ],
     "25.4 Mock 로컬 E2E": [
@@ -1043,6 +1148,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710053622
+      },
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795713875764
+      },
+      {
+        "executionId": "30fade01-9b22-4f60-9694-d2c893246c8d",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795718495136
       }
     ],
     "12. 백엔드 I/O 모듈 — 캐시": [
@@ -1113,6 +1228,20 @@
         "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795713083309
+      }
+    ],
+    "24. 문서화": [
+      {
+        "executionId": "633da53a-8ba7-499b-8f80-21cb35d69ecd",
+        "chatSessionId": "sess_0ead4c08-f43d-4128-ae2f-bc6cfd58c4cc",
+        "timestamp": 1795713776257
+      }
+    ],
+    "25. 완료 검증 (로컬 — 승인 불필요)": [
+      {
+        "executionId": "465ce181-6074-4006-89bc-478f58a55ba2",
+        "chatSessionId": "sess_81f7890a-2f67-423b-9b55-42659e302802",
+        "timestamp": 1795715414133
       }
     ]
   }

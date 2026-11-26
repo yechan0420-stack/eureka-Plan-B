@@ -45,6 +45,13 @@ export type {
   UploadContentType,
 } from './apiTypes'
 
+import {
+  isMockEnabled,
+  mockRequestUpload,
+  mockSearch,
+  mockUploadToS3,
+} from './mockApi'
+
 /** 우리 API Gateway 라우트 경로(상대). 베이스 URL 뒤에 붙는다. */
 export const UPLOADS_PATH = '/uploads'
 export const SEARCH_PATH = '/search'
@@ -128,6 +135,7 @@ async function parseJsonOrThrow<T>(res: Response): Promise<T> {
 export async function requestUpload(
   contentType: UploadContentType,
 ): Promise<RequestUploadResponse> {
+  if (isMockEnabled()) return mockRequestUpload(contentType)
   const res = await fetch(endpoint(UPLOADS_PATH), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -154,6 +162,7 @@ export async function uploadToS3(
   presignedPost: { readonly url: string; readonly fields: Record<string, string> },
   file: Blob,
 ): Promise<void> {
+  if (isMockEnabled()) return mockUploadToS3()
   const form = new FormData()
   // 1) 서버가 준 서명 필드를 먼저 모두 넣는다.
   for (const [name, value] of Object.entries(presignedPost.fields)) {
@@ -191,6 +200,7 @@ export async function search(
   objectKey: string,
   clientRequestId?: string,
 ): Promise<SearchResponse> {
+  if (isMockEnabled()) return mockSearch()
   const body: { objectKey: string; clientRequestId?: string } = { objectKey }
   if (clientRequestId !== undefined) {
     body.clientRequestId = clientRequestId
@@ -222,3 +232,4 @@ export async function runSearch(
   await uploadToS3({ url: upload.url, fields: { ...upload.fields } }, croppedFile)
   return search(objectKey, clientRequestId)
 }
+

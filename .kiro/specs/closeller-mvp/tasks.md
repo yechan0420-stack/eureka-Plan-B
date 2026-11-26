@@ -324,38 +324,38 @@
 - [x] 23. 체크포인트 — 프론트엔드 빌드·테스트 통과 확인
   - 모든 테스트가 통과하는지 확인하고, 의문이 생기면 사용자에게 묻는다.
 
-- [ ] 24. 문서화
-  - [ ] 24.1 README.md 작성
+- [x] 24. 문서화
+  - [x] 24.1 README.md 작성
     - 프로젝트 개요, 폴더 구조, 로컬 실행·빌드·테스트 방법(Windows PowerShell 기준, 한국어)
     - _Requirements: 22.1, 22.6_
-  - [ ] 24.2 docs/setup-guide.md 작성
+  - [x] 24.2 docs/setup-guide.md 작성
     - 초보자용 Windows PowerShell 단계별: AWS 계정, 루트 계정 보호, IAM, AWS CLI/SAM CLI 설치, SerpApi 가입·Key 발급, SSM Key 등록, AWS Budgets 알림, 배포 순서, 정리 방법
     - _Requirements: 22.2, 22.6_
-  - [ ] 24.3 docs/external-services.md 작성
+  - [x] 24.3 docs/external-services.md 작성
     - SerpApi 역할·사용 이유·무료 한도(월 250회, 시간당 50회) 기록
     - _Requirements: 22.3_
-  - [ ] 24.4 docs/aws-free-tier.md 작성
+  - [x] 24.4 docs/aws-free-tier.md 작성
     - 서비스별 Free Tier 조사 결과, 불확실 항목은 "확인 필요"로 표시
     - _Requirements: 22.4_
-  - [ ] 24.5 docs/cost-and-budgets.md 작성
+  - [x] 24.5 docs/cost-and-budgets.md 작성
     - 비용 설계·예산 알림 안내
     - _Requirements: 22.5_
 
-- [ ] 25. 완료 검증 (로컬 — 승인 불필요)
-  - [ ] 25.1 프론트엔드 빌드·타입 검사
+- [x] 25. 완료 검증 (로컬 — 승인 불필요)
+  - [x] 25.1 프론트엔드 빌드·타입 검사
     - `npm run build` + TypeScript 타입 검사 통과, 결과 요약 보고
     - _Requirements: 24.1, 24.5_
-  - [ ] 25.2 백엔드 테스트 실행
+  - [x] 25.2 백엔드 테스트 실행
     - `pytest`로 파일 검증·도메인 분류·정규화·중복 제거·가격 파싱·호출 제한 단위 테스트와 속성 테스트 통과, 결과 요약 보고
     - _Requirements: 24.2, 24.5_
-  - [ ] 25.3 SAM 로컬 검증
+  - [x] 25.3 SAM 로컬 검증
     - `sam validate` + `sam build` 통과(승인 불필요), 결과 요약 보고
     - _Requirements: 23.2, 24.3, 24.5_
   - [x] 25.4 Mock 로컬 E2E
     - `USE_MOCK_SEARCH=true` + `sam local`로 업로드→크롭→결과 화면 전체 흐름을 API Key 없이 로컬 수행, 결과 요약 보고
     - _Requirements: 19.6, 24.4, 24.5_
 
-- [ ] 26. 🔒 배포 준비 (승인 필요 — 실행하지 않음)
+- [x] 26. 🔒 배포 준비 (승인 필요 — 실행하지 않음)
   - 🔒 **APPROVAL REQUIRED (Req 23.1)**: 아래 작업은 명령어와 예상 영향만 제시하고 사용자 승인을 기다린다. 승인 전에는 절대 실행하지 않는다.
     - `sam deploy` 및 AWS 리소스(S3/DynamoDB/Lambda/API Gateway/로그 그룹) 생성·변경·삭제
     - 실제 SerpApi_Service 호출(Key를 사용한 라이브 google_lens 검색)
