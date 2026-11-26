@@ -3,6 +3,14 @@
     "5.2 SHA-256 결정성 속성 테스트": {
       "status": "passed",
       "lastRunTimestamp": 1795675038597
+    },
+    "9.2 필수 필드 필터 속성 테스트": {
+      "status": "passed",
+      "lastRunTimestamp": 1795688774325
+    },
+    "9.3 가격 보존 속성 테스트": {
+      "status": "passed",
+      "lastRunTimestamp": 1795691061853
     }
   },
   "executionHistory": {
@@ -157,6 +165,843 @@
         "executionId": "a251dbae-e69a-424a-b532-1c9ed452eef2",
         "chatSessionId": "sess_faf1b99a-14f6-444d-93ec-dbf85faee090",
         "timestamp": 1795675295202
+      }
+    ],
+    "6.1 `url_tools.py` 구현": [
+      {
+        "executionId": "0211c5a8-dd11-4006-a6aa-20ad9c1bda3a",
+        "chatSessionId": "sess_27e56c6c-92d4-4abc-946c-65586ebc6a49",
+        "timestamp": 1795676628986
+      },
+      {
+        "executionId": "0211c5a8-dd11-4006-a6aa-20ad9c1bda3a",
+        "chatSessionId": "sess_27e56c6c-92d4-4abc-946c-65586ebc6a49",
+        "timestamp": 1795685820895
+      }
+    ],
+    "6.2 중복 판정 기준 URL 정규화 속성 테스트": [
+      {
+        "executionId": "0211c5a8-dd11-4006-a6aa-20ad9c1bda3a",
+        "chatSessionId": "sess_27e56c6c-92d4-4abc-946c-65586ebc6a49",
+        "timestamp": 1795685834862
+      },
+      {
+        "executionId": "0211c5a8-dd11-4006-a6aa-20ad9c1bda3a",
+        "chatSessionId": "sess_27e56c6c-92d4-4abc-946c-65586ebc6a49",
+        "timestamp": 1795686071451
+      }
+    ],
+    "6.3 스킴 필터 속성 테스트": [
+      {
+        "executionId": "0211c5a8-dd11-4006-a6aa-20ad9c1bda3a",
+        "chatSessionId": "sess_27e56c6c-92d4-4abc-946c-65586ebc6a49",
+        "timestamp": 1795685835784
+      },
+      {
+        "executionId": "0211c5a8-dd11-4006-a6aa-20ad9c1bda3a",
+        "chatSessionId": "sess_27e56c6c-92d4-4abc-946c-65586ebc6a49",
+        "timestamp": 1795686072452
+      }
+    ],
+    "6. 백엔드 순수 모듈 — URL 도구": [
+      {
+        "executionId": "0211c5a8-dd11-4006-a6aa-20ad9c1bda3a",
+        "chatSessionId": "sess_27e56c6c-92d4-4abc-946c-65586ebc6a49",
+        "timestamp": 1795686072724
+      }
+    ],
+    "7.1 `platform_map.py` 구현": [
+      {
+        "executionId": "8c0a39ff-1b14-4c4a-a270-31035972efba",
+        "chatSessionId": "sess_90062166-938d-443d-8a18-b509b773a166",
+        "timestamp": 1795686195954
+      },
+      {
+        "executionId": "8c0a39ff-1b14-4c4a-a270-31035972efba",
+        "chatSessionId": "sess_90062166-938d-443d-8a18-b509b773a166",
+        "timestamp": 1795686953650
+      }
+    ],
+    "7.2 도메인 분류 속성 테스트": [
+      {
+        "executionId": "8c0a39ff-1b14-4c4a-a270-31035972efba",
+        "chatSessionId": "sess_90062166-938d-443d-8a18-b509b773a166",
+        "timestamp": 1795686970393
+      },
+      {
+        "executionId": "8c0a39ff-1b14-4c4a-a270-31035972efba",
+        "chatSessionId": "sess_90062166-938d-443d-8a18-b509b773a166",
+        "timestamp": 1795687384487
+      }
+    ],
+    "7.3 Platform_Map 단위 테스트": [
+      {
+        "executionId": "8c0a39ff-1b14-4c4a-a270-31035972efba",
+        "chatSessionId": "sess_90062166-938d-443d-8a18-b509b773a166",
+        "timestamp": 1795686974923
+      },
+      {
+        "executionId": "8c0a39ff-1b14-4c4a-a270-31035972efba",
+        "chatSessionId": "sess_90062166-938d-443d-8a18-b509b773a166",
+        "timestamp": 1795687385260
+      }
+    ],
+    "7. 백엔드 순수 모듈 — 플랫폼 분류": [
+      {
+        "executionId": "8c0a39ff-1b14-4c4a-a270-31035972efba",
+        "chatSessionId": "sess_90062166-938d-443d-8a18-b509b773a166",
+        "timestamp": 1795687385657
+      }
+    ],
+    "8. 백엔드 순수 모듈 — Match_Grade 산정": [
+      {
+        "executionId": "2c41ff58-ed4b-4828-a417-79d1b22bc70c",
+        "chatSessionId": "sess_cd53e89e-e2a5-4999-ad96-cc6806a435cd",
+        "timestamp": 1795687449005
+      },
+      {
+        "executionId": "2c41ff58-ed4b-4828-a417-79d1b22bc70c",
+        "chatSessionId": "sess_cd53e89e-e2a5-4999-ad96-cc6806a435cd",
+        "timestamp": 1795687639859
+      }
+    ],
+    "8.1 `match_grade.py` 구현": [
+      {
+        "executionId": "2c41ff58-ed4b-4828-a417-79d1b22bc70c",
+        "chatSessionId": "sess_cd53e89e-e2a5-4999-ad96-cc6806a435cd",
+        "timestamp": 1795687467925
+      },
+      {
+        "executionId": "2c41ff58-ed4b-4828-a417-79d1b22bc70c",
+        "chatSessionId": "sess_cd53e89e-e2a5-4999-ad96-cc6806a435cd",
+        "timestamp": 1795687639620
+      }
+    ],
+    "9.1 `normalize.py` 구현": [
+      {
+        "executionId": "578f5ca0-38bf-4b6b-91bc-33daa6ed39ba",
+        "chatSessionId": "sess_b64d5e85-702a-4249-9ba3-1f05d6ee5e18",
+        "timestamp": 1795687765477
+      },
+      {
+        "executionId": "578f5ca0-38bf-4b6b-91bc-33daa6ed39ba",
+        "chatSessionId": "sess_b64d5e85-702a-4249-9ba3-1f05d6ee5e18",
+        "timestamp": 1795688224984
+      }
+    ],
+    "9.2 필수 필드 필터 속성 테스트": [
+      {
+        "executionId": "b38db909-8727-48da-ada7-1f502dd5ee72",
+        "chatSessionId": "sess_6f359e50-93f1-4da6-af0b-24060947bd19",
+        "timestamp": 1795688439541
+      },
+      {
+        "executionId": "b38db909-8727-48da-ada7-1f502dd5ee72",
+        "chatSessionId": "sess_6f359e50-93f1-4da6-af0b-24060947bd19",
+        "timestamp": 1795688794871
+      }
+    ],
+    "9.3 가격 보존 속성 테스트": [
+      {
+        "executionId": "3e359e4a-6fe1-4231-a242-8fa99d4cc7a5",
+        "chatSessionId": "sess_e05f2c56-2318-4f53-baf0-30b3a76d30f8",
+        "timestamp": 1795689776131
+      },
+      {
+        "executionId": "3e359e4a-6fe1-4231-a242-8fa99d4cc7a5",
+        "chatSessionId": "sess_e05f2c56-2318-4f53-baf0-30b3a76d30f8",
+        "timestamp": 1795691081913
+      }
+    ],
+    "9.4 가격 미확인 처리 속성 테스트": [
+      {
+        "executionId": "856c4238-6c05-41e3-a688-be1e73af9e05",
+        "chatSessionId": "sess_c2f34118-9d30-495f-a79a-1e06714f131e",
+        "timestamp": 1795691180353
+      },
+      {
+        "executionId": "856c4238-6c05-41e3-a688-be1e73af9e05",
+        "chatSessionId": "sess_c2f34118-9d30-495f-a79a-1e06714f131e",
+        "timestamp": 1795691360561
+      }
+    ],
+    "9.5 중복 제거 속성 테스트": [
+      {
+        "executionId": "1e6d9955-8663-4fdc-bfce-e0bbceaa05ff",
+        "chatSessionId": "sess_22f96260-e89a-4bbf-9eea-a36664974006",
+        "timestamp": 1795691428237
+      },
+      {
+        "executionId": "1e6d9955-8663-4fdc-bfce-e0bbceaa05ff",
+        "chatSessionId": "sess_22f96260-e89a-4bbf-9eea-a36664974006",
+        "timestamp": 1795691659633
+      }
+    ],
+    "9.6 동일/유사 유형 구분 속성 테스트": [
+      {
+        "executionId": "bc8376d7-dd3e-4df1-b4c9-52e4283ec63d",
+        "chatSessionId": "sess_d74d453e-e517-41a7-9679-5d6a8f93fb5a",
+        "timestamp": 1795691956486
+      },
+      {
+        "executionId": "bc8376d7-dd3e-4df1-b4c9-52e4283ec63d",
+        "chatSessionId": "sess_d74d453e-e517-41a7-9679-5d6a8f93fb5a",
+        "timestamp": 1795692180771
+      }
+    ],
+    "9.7 정규화 단위 테스트 (가격 파싱·정렬)": [
+      {
+        "executionId": "6772029e-175d-42f1-8aca-c615f0abd964",
+        "chatSessionId": "sess_9e8f9cc0-48cf-4575-bf74-a08203cf6238",
+        "timestamp": 1795692388341
+      },
+      {
+        "executionId": "6772029e-175d-42f1-8aca-c615f0abd964",
+        "chatSessionId": "sess_9e8f9cc0-48cf-4575-bf74-a08203cf6238",
+        "timestamp": 1795692594459
+      }
+    ],
+    "9. 백엔드 순수 모듈 — 정규화 파이프라인": [
+      {
+        "executionId": "6772029e-175d-42f1-8aca-c615f0abd964",
+        "chatSessionId": "sess_9e8f9cc0-48cf-4575-bf74-a08203cf6238",
+        "timestamp": 1795692594633
+      }
+    ],
+    "10.1 `mock.py` 구현": [
+      {
+        "executionId": "2f43b3c6-a009-43da-9a38-42c6676391fe",
+        "chatSessionId": "sess_9f6f9166-a656-47d3-8fd0-934fc9803e4c",
+        "timestamp": 1795697571358
+      },
+      {
+        "executionId": "2f43b3c6-a009-43da-9a38-42c6676391fe",
+        "chatSessionId": "sess_9f6f9166-a656-47d3-8fd0-934fc9803e4c",
+        "timestamp": 1795698186675
+      }
+    ],
+    "10. 백엔드 순수 모듈 — Mock 데이터": [
+      {
+        "executionId": "2f43b3c6-a009-43da-9a38-42c6676391fe",
+        "chatSessionId": "sess_9f6f9166-a656-47d3-8fd0-934fc9803e4c",
+        "timestamp": 1795698187581
+      }
+    ],
+    "11. 체크포인트 — 순수 모듈 테스트 통과 확인": [
+      {
+        "executionId": "52f86a2c-0d8e-4a78-953a-b3316a31109c",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701537557
+      },
+      {
+        "executionId": "52f86a2c-0d8e-4a78-953a-b3316a31109c",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701601986
+      }
+    ],
+    "12.1 `cache.py` 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701700816
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701737290
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795702226800
+      }
+    ],
+    "13.1 `rate_limit.py` 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701701215
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795702233381
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795702439148
+      }
+    ],
+    "13.2 호출 제한 속성 테스트": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701701513
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795702445214
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795702616651
+      }
+    ],
+    "13.3 호출 제한 단위 테스트": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701701778
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795702620026
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795702867779
+      }
+    ],
+    "14.1 `serp_client.py` 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701702183
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795702873743
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795703354033
+      }
+    ],
+    "15.1 `cleanup.py` 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701702465
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795703360445
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795703612608
+      }
+    ],
+    "16.1 Upload_Lambda 핸들러 구현 (`POST /uploads`)": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701702667
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795703619159
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795703856946
+      }
+    ],
+    "16.4 Search_Lambda 핸들러 파이프라인 조립 (`POST /search`)": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701702844
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795703863275
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795705714722
+      }
+    ],
+    "17. 체크포인트 — 백엔드 전체 테스트 통과 확인": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701703083
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795705722207
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795705782014
+      }
+    ],
+    "18.1 S3 Image_Bucket 정의": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701703278
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795705799639
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795706237198
+      }
+    ],
+    "18.2 DynamoDB Cache_Table · Counter_Table 정의": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701703528
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795706243959
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795706465658
+      }
+    ],
+    "18.3 Lambda 함수 정의 (최소 권한 IAM)": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701703783
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795706478815
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795706757123
+      }
+    ],
+    "18.4 API Gateway HTTP API 정의": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701704025
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795706763968
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795707605640
+      }
+    ],
+    "18.5 CloudWatch 로그·비용 가드 정의": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701704290
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795707612613
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795707810558
+      }
+    ],
+    "18.6 amplify.yml 작성": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701704479
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795707819034
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795707935197
+      }
+    ],
+    "19.1 라우팅과 화면 구성": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701704663
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795707945655
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710011928
+      }
+    ],
+    "20.1 UploadDropzone · ImagePreview 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701704901
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795708325923
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795708581647
+      }
+    ],
+    "20.2 ClientFileValidator 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701705116
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795708586241
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795708777793
+      }
+    ],
+    "20.4 CropTool 구현 (브라우저 크롭)": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701705349
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795708782031
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795709337962
+      },
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795709346425
+      }
+    ],
+    "20.5 ConsentGate 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701705555
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710021434
+      }
+    ],
+    "21.1 API 클라이언트 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701705768
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710022278
+      }
+    ],
+    "21.2 SearchProgress 상태 머신 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701705964
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710023613
+      }
+    ],
+    "22.1 ResultGrid · ProductCard 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701706147
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710024792
+      }
+    ],
+    "22.2 TestDataBadge · 구매 버튼 제어 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701706345
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710025674
+      }
+    ],
+    "22.4 SortControls 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701706554
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710035294
+      }
+    ],
+    "22.8 FilterControls 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701706758
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710036669
+      }
+    ],
+    "22.10 ErrorNotice 구현": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701706942
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710037623
+      }
+    ],
+    "23. 체크포인트 — 프론트엔드 빌드·테스트 통과 확인": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701707142
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710039006
+      }
+    ],
+    "24.1 README.md 작성": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701707339
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710040386
+      }
+    ],
+    "24.2 docs/setup-guide.md 작성": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701707533
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710049450
+      }
+    ],
+    "24.3 docs/external-services.md 작성": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701707750
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710050083
+      }
+    ],
+    "24.4 docs/aws-free-tier.md 작성": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701708161
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710051458
+      }
+    ],
+    "24.5 docs/cost-and-budgets.md 작성": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701708515
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710052418
+      }
+    ],
+    "25.1 프론트엔드 빌드·타입 검사": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701708854
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710061953
+      }
+    ],
+    "25.2 백엔드 테스트 실행": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701709081
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710062731
+      }
+    ],
+    "25.3 SAM 로컬 검증": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701709313
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710064250
+      }
+    ],
+    "25.4 Mock 로컬 E2E": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701709554
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710065155
+      }
+    ],
+    "26. 🔒 배포 준비 (승인 필요 — 실행하지 않음)": [
+      {
+        "executionId": "ef351749-ec91-421e-93f6-2cdb83e030ab",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795701709833
+      },
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710053622
+      }
+    ],
+    "12. 백엔드 I/O 모듈 — 캐시": [
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795702226992
+      }
+    ],
+    "13. 백엔드 I/O 모듈 — 호출 제한": [
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795702868047
+      }
+    ],
+    "14. 백엔드 I/O 모듈 — SerpApi 클라이언트 (실제 호출 금지)": [
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795703354454
+      }
+    ],
+    "15. 백엔드 I/O 모듈 — 원본 삭제": [
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795703612865
+      }
+    ],
+    "16. 백엔드 — handler 파이프라인 조립": [
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795705714863
+      }
+    ],
+    "18. SAM 인프라 정의 (`template.yaml`) — 로컬 작성·검증만": [
+      {
+        "executionId": "009e95e5-96d1-4e80-b55c-f700e76c2a6b",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795707935633
+      }
+    ],
+    "19. 프론트엔드 — 라우팅과 5개 화면 뼈대": [
+      {
+        "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710012304
       }
     ]
   }

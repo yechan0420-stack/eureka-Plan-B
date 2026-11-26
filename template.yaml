@@ -1,21 +1,434 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  CLOSELLER 1차 MVP - AWS SAM 인프라 (자리표시자 스텁)
+  CLOSELLER 1차 MVP - AWS SAM 인프라
 
 # =============================================================================
-# [자리표시자] 이 파일은 Task 1(스캐폴딩)에서 생성된 최소 스텁입니다.
-#
-# 실제 AWS 리소스 정의는 Task 18(SAM 인프라 정의)에서 채워집니다:
-#   - 18.1 S3 Image_Bucket (비공개, 암호화, CORS, 1일 Lifecycle)
+# 실제 AWS 리소스 정의는 Task 18(SAM 인프라 정의)에서 채워진다:
+#   - 18.1 S3 Image_Bucket (비공개, 암호화, CORS, 1일 Lifecycle)  ← 현재까지 정의됨
 #   - 18.2 DynamoDB Cache_Table / Counter_Table (Provisioned 소용량, TTL)
 #   - 18.3 Lambda 함수 (Upload_Lambda, Search_Lambda, 최소 권한 IAM)
 #   - 18.4 API Gateway HTTP API (POST /uploads, POST /search, 스로틀, CORS)
 #   - 18.5 CloudWatch 로그(14일 보존), 비용 가드
 #
 # 승인 규칙(Req 23.1): sam deploy 및 AWS 리소스 생성/변경/삭제는 사용자 승인 전 실행하지 않는다.
-# 이 단계에서는 실제 리소스를 정의하지 않는다.
 # =============================================================================
 
-# TODO(Task 18): Parameters, Resources, Outputs 를 여기에 정의한다.
-Resources: {}
+Parameters:
+  # 업로드 CORS 허용 출처. 하드코딩하지 않고 배포 시 파라미터로 주입한다 (Req 20.1).
+  # 예: https://main.dxxxx.amplifyapp.com
+  AllowedOrigin:
+    Type: String
+    Description: Image_Bucket CORS 허용 출처(Origin). 프론트엔드가 호스팅되는 출처를 주입한다 (Req 20.1).
+    Default: '*'
+
+  # ---------------------------------------------------------------------------
+  # Lambda 파라미터 (Task 18.3)
+  # 비밀 "값"은 넣지 않는다 — SerpApi Key는 아래 파라미터의 "이름(경로)"으로만 참조하고,
+  # Search_Lambda가 런타임에 SSM SecureString에서 복호화해 읽는다 (Req 20.5, 21.4).
+  # ---------------------------------------------------------------------------
+
+  # SerpApi Key가 저장된 SSM Parameter Store SecureString의 "파라미터 이름(경로)".
+  # 실제 Key 값은 템플릿 어디에도 넣지 않는다 (값 미포함, Req 20.5·21.4).
+  # 이 이름은 (1) Search_Lambda 환경변수 SERP_API_KEY_SSM_PARAM 로 주입되고,
+  #          (2) ssm:GetParameter IAM 권한을 이 파라미터 ARN 하나로만 좁히는 데 쓰인다.
+  SerpApiKeySsmParam:
+    Type: String
+    Description: SerpApi Key가 저장된 SSM SecureString 파라미터 이름(경로). 값이 아니라 이름만 주입한다 (Req 21.4).
+    Default: /closeller/serpapi/api-key
+
+  # SerpApi Key SecureString 복호화에 사용된 KMS 키 ID/ARN(선택).
+  # AWS 관리형 기본 키(alias/aws/ssm)로 암호화했다면 별도 kms:Decrypt 권한이 필요 없으므로
+  # 기본값은 빈 문자열이며, 이때 Search_Lambda에 kms:Decrypt 권한을 부여하지 않는다.
+  # 고객 관리형 KMS(CMK)를 썼다면 그 키 ARN을 주입하면 해당 키에 한해서만 복호화 권한을 붙인다.
+  SerpApiKeyKmsKeyArn:
+    Type: String
+    Description: SerpApi Key SecureString 복호화용 고객 관리형 KMS 키 ARN(선택). AWS 관리형 기본 키면 비워 둔다 (Req 20.5).
+    Default: ''
+
+  # Mock 검색 모드. true면 Search_Lambda가 SerpApi를 호출하지 않고 고정 MOCK 데이터를 반환한다.
+  UseMockSearch:
+    Type: String
+    AllowedValues: ['true', 'false']
+    Default: 'false'
+    Description: USE_MOCK_SEARCH 값. true면 외부 SerpApi 미호출·고정 MOCK 데이터 반환.
+
+  # 월간 전체 호출 상한(기본 200). rate_limit.py 가 MONTHLY_CALL_LIMIT 에서 읽는다 (Req 7.3).
+  MonthlyCallLimit:
+    Type: Number
+    Default: 200
+    MinValue: 1
+    MaxValue: 1000000
+    Description: 월간 전체 SerpApi 호출 상한 (환경변수 MONTHLY_CALL_LIMIT, Req 7.3).
+
+  # IP별 일일 호출 상한(기본 5). rate_limit.py 가 IP_DAILY_LIMIT 에서 읽는다 (Req 7.4).
+  IpDailyLimit:
+    Type: Number
+    Default: 5
+    MinValue: 1
+    MaxValue: 1000000
+    Description: IP별 일일 SerpApi 호출 상한 (환경변수 IP_DAILY_LIMIT, Req 7.4).
+
+  # ---------------------------------------------------------------------------
+  # API Gateway HTTP API 스로틀 파라미터 (Task 18.4)
+  # 스로틀 값은 하드코딩하지 않고 배포 시 파라미터(=환경변수)로 주입하며,
+  # 각각 허용 범위 1~10,000 정수로 제한한다 (Req 7.9, 20.4·21.1).
+  # HTTP API 스테이지의 기본 라우트 스로틀(DefaultRouteSettings)에 적용된다.
+  # ---------------------------------------------------------------------------
+
+  # 초당 평균 요청 상한(기본 2). THROTTLE_RATE 환경변수에 대응 (Req 7.9).
+  ThrottleRateLimit:
+    Type: Number
+    Default: 2
+    MinValue: 1
+    MaxValue: 10000
+    Description: API Gateway 기본 라우트 스로틀 rate(초당 평균 요청 수). 기본 2, 허용 범위 1~10,000 (Req 7.9).
+
+  # 순간 버스트 상한(기본 5). THROTTLE_BURST 환경변수에 대응 (Req 7.9).
+  ThrottleBurstLimit:
+    Type: Number
+    Default: 5
+    MinValue: 1
+    MaxValue: 10000
+    Description: API Gateway 기본 라우트 스로틀 burst(순간 버스트 요청 수). 기본 5, 허용 범위 1~10,000 (Req 7.9).
+
+Conditions:
+  # 고객 관리형 KMS 키 ARN이 주입된 경우에만 kms:Decrypt 권한을 Search_Lambda에 붙인다.
+  # (AWS 관리형 기본 SSM 키로 암호화했다면 추가 권한이 필요 없다 — 최소 권한, Req 20.5.)
+  HasSerpApiKmsKey: !Not [!Equals [!Ref SerpApiKeyKmsKeyArn, '']]
+
+# =============================================================================
+# Globals: 두 Lambda 공통값 — 작은 메모리·짧은 타임아웃(Req 20.3), Python 런타임.
+#   - 개별 함수에서 MemorySize/Timeout 을 재정의해 Upload_Lambda 는 더 짧게(3초) 맞춘다.
+#   - CodeUri 는 백엔드 소스 루트(backend/src)이며, 핸들러는 `closeller.<module>.handler`.
+# =============================================================================
+Globals:
+  Function:
+    Runtime: python3.11
+    MemorySize: 128
+    Timeout: 10
+    Architectures:
+      - arm64
+
+Resources:
+  # ---------------------------------------------------------------------------
+  # Http_Api (Task 18.4) — API Gateway HTTP API (payload v2)
+  #   - 라우트: POST /uploads → Upload_Lambda, POST /search → Search_Lambda.
+  #     라우트 자체는 각 함수의 Events(Type: HttpApi, ApiId: !Ref HttpApi)로 연결한다
+  #     (18.3 에서 독립 정의된 두 함수에 깔끔히 라우트를 붙이는 방식, Req 20.4).
+  #   - 스로틀: 스테이지 기본 라우트 스로틀(DefaultRouteSettings)에 rate/burst 적용.
+  #     값은 파라미터(ThrottleRateLimit 기본 2 / ThrottleBurstLimit 기본 5, 범위 1~10,000)로 주입(Req 7.9).
+  #   - CORS: 허용 출처를 파라미터(AllowedOrigin)로 받는다(하드코딩 금지). POST/OPTIONS 허용(Req 20.1, 20.4).
+  #   핸들러는 이미 payload v2 응답(statusCode/headers/body)을 반환하므로 HTTP API(v2)로 둔다.
+  # ---------------------------------------------------------------------------
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      # 스테이지 기본 라우트 스로틀 — 모든 라우트에 공통 적용되는 기본 rate/burst (Req 7.9).
+      DefaultRouteSettings:
+        ThrottlingRateLimit: !Ref ThrottleRateLimit
+        ThrottlingBurstLimit: !Ref ThrottleBurstLimit
+      # CORS: 허용 출처는 파라미터로 주입하고, 프론트가 보내는 POST 요청과 프리플라이트(OPTIONS)를 허용한다.
+      CorsConfiguration:
+        AllowOrigins:
+          - !Ref AllowedOrigin
+        AllowMethods:
+          - POST
+          - OPTIONS
+        AllowHeaders:
+          - Content-Type
+          - Authorization
+          - X-Amz-Date
+          - X-Api-Key
+          - X-Amz-Security-Token
+        MaxAge: 300
+
+  # ---------------------------------------------------------------------------
+  # Image_Bucket (Task 18.1) — 업로드 이미지 저장용 비공개 S3 버킷
+  #   - Block Public Access 전체 활성 (비공개)                    (Req 20.1)
+  #   - 서버 측 암호화(SSE-S3/AES256)                            (Req 20.1)
+  #   - CORS 허용 출처를 파라미터로 주입 (하드코딩 금지)           (Req 20.1)
+  #   - Lifecycle: 생성 1일 후 객체 삭제                          (Req 12.2, 20.1)
+  # ---------------------------------------------------------------------------
+  ImageBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      # 비공개: Block Public Access 네 가지 플래그 모두 활성
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      # 서버 측 암호화 (SSE-S3)
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      # CORS: 허용 출처는 파라미터로 주입 (Presigned POST 업로드 지원)
+      CorsConfiguration:
+        CorsRules:
+          - AllowedOrigins:
+              - !Ref AllowedOrigin
+            AllowedMethods:
+              - PUT
+              - POST
+            AllowedHeaders:
+              - '*'
+            MaxAge: 300
+      # Lifecycle: 생성 1일 후 객체 자동 삭제 (원본 이미지 이중 삭제 안전망)
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireObjectsAfterOneDay
+            Status: Enabled
+            ExpirationInDays: 1
+
+  # ---------------------------------------------------------------------------
+  # Cache_Table (Task 18.2) — 이미지 해시 기반 검색 결과 캐시 (DynamoDB)
+  #   - PK: imageHash (String) — cache.py 가 Key={"imageHash": ...} 로 사용     (Req 6.2~6.4)
+  #   - Provisioned 소용량(무료 한도 대상)                                      (Req 20.2)
+  #   - TTL: ttl 속성(epoch) 활성 — createdAt + 86400(24시간) 후 자동 삭제       (Req 6.4, 20.2)
+  #   - 비키(ttl/results/currencyMixed/createdAt)는 AttributeDefinitions 미포함
+  # ---------------------------------------------------------------------------
+  CacheTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PROVISIONED
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+      AttributeDefinitions:
+        - AttributeName: imageHash
+          AttributeType: S
+      KeySchema:
+        - AttributeName: imageHash
+          KeyType: HASH
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+
+  # ---------------------------------------------------------------------------
+  # Counter_Table (Task 18.2) — 월간/IP일일 호출 수 카운터 (DynamoDB)
+  #   - PK: counterId (String) — rate_limit.py 가 Key={"counterId": ...} 로 사용 (Req 7.1~7.8)
+  #   - Provisioned 소용량(무료 한도 대상)                                      (Req 20.2)
+  #   - TTL: ttl 속성(epoch) 활성 — 기간 경과 후 자동 삭제                       (Req 20.2)
+  #   - 비키(ttl/count)는 AttributeDefinitions 미포함
+  # ---------------------------------------------------------------------------
+  CounterTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PROVISIONED
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+      AttributeDefinitions:
+        - AttributeName: counterId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: counterId
+          KeyType: HASH
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+
+  # ---------------------------------------------------------------------------
+  # Upload_Lambda (Task 18.3) — `POST /uploads` Presigned POST 발급 함수
+  #   핸들러:   closeller.upload_handler.handler  (backend/src/closeller/upload_handler.py)
+  #   역할:     크롭 이미지를 Image_Bucket 에 직접 올릴 Presigned POST 발급. 외부 호출 없음.
+  #   성능:     작은 메모리(128MB) + 짧은 타임아웃 3초 — 3초 이내 응답 요구(Req 2, 4.2, 20.3).
+  #   최소 권한: Image_Bucket 객체에 대한 s3:PutObject 만. 와일드카드 리소스 금지(Req 20.5, 20.8).
+  #             Presigned POST 서명은 자격 증명만으로 가능하므로 PutObject(업로드 대상 권한)만 둔다.
+  #   NOTE: API Gateway Events 는 여기에 붙이지 않는다. HTTP API 라우트(POST /uploads)는
+  #         Task 18.4 에서 별도 AWS::Serverless::HttpApi + 이 함수의 Events 로 연결한다.
+  #         (18.3 은 함수만 독립 정의 → 18.4 가 Api 이벤트를 깔끔히 추가하도록 역할 분리.)
+  # ---------------------------------------------------------------------------
+  UploadLambda:
+    Type: AWS::Serverless::Function
+    # 로그 보존 14일 그룹을 먼저 만들어 두어, Lambda 가 무기한 보존 그룹을 자동 생성하지 않도록 한다 (Req 20.6).
+    DependsOn: UploadLambdaLogGroup
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-Upload'
+      CodeUri: backend/src/
+      Handler: closeller.upload_handler.handler
+      # Upload_Lambda 는 3초 이내 응답해야 하므로 전역 기본(10초)보다 짧게 재정의(Req 2, 4.2).
+      Timeout: 3
+      MemorySize: 128
+      Environment:
+        Variables:
+          # upload_handler.py 가 os.environ["IMAGE_BUCKET"] 로 읽는 버킷 이름.
+          IMAGE_BUCKET: !Ref ImageBucket
+      # HTTP API 라우트 POST /uploads 를 이 함수에 연결한다 (Task 18.4, Req 20.4).
+      Events:
+        PostUploads:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /uploads
+            Method: POST
+      Policies:
+        # 최소 권한: Image_Bucket "객체"에 대한 PutObject 만. 버킷/다른 리소스 권한 없음.
+        # Resource 는 버킷 ARN 아래 객체(/*)로 한정하며 와일드카드 서비스/계정은 쓰지 않는다(Req 20.5, 20.8).
+        - Version: '2012-10-17'
+          Statement:
+            - Sid: UploadPutObjectOnly
+              Effect: Allow
+              Action:
+                - s3:PutObject
+              Resource:
+                - !Sub '${ImageBucket.Arn}/*'
+
+  # ---------------------------------------------------------------------------
+  # Search_Lambda (Task 18.3) — `POST /search` 검색 파이프라인 함수
+  #   핸들러:   closeller.handler.handler  (backend/src/closeller/handler.py)
+  #   역할:     검증→해시→캐시→호출제한→Presigned GET→SerpApi(또는 Mock)→정규화→캐시저장→원본삭제.
+  #   성능:     작은 메모리(128MB) + 짧은 타임아웃(전역 10초) — 외부 호출 포함이라 Upload 보다 길되 짧게(Req 20.3).
+  #   최소 권한(각 리소스 ARN 만, 와일드카드 금지 — Req 20.5, 20.8):
+  #     - Image_Bucket 객체: s3:GetObject(검증 위해 읽기) + s3:DeleteObject(원본 즉시 삭제, Req 12.1).
+  #       (Presigned GET 서명은 자격 증명으로 가능하므로 별도 액션 불필요; GetObject 로 head/get 재검증 커버.)
+  #     - Cache_Table / Counter_Table: 조회·조건부 증가·저장을 위한 dynamodb 읽기/쓰기 액션.
+  #     - SSM: ssm:GetParameter 를 SerpApi Key 파라미터 "그 ARN 하나"로만. (값 미포함, Req 21.4.)
+  #     - KMS: 고객 관리형 키로 SecureString 을 암호화한 경우에만 그 키 ARN 에 kms:Decrypt(조건부).
+  # ---------------------------------------------------------------------------
+  SearchLambda:
+    Type: AWS::Serverless::Function
+    # 로그 보존 14일 그룹을 먼저 만들어 두어, Lambda 가 무기한 보존 그룹을 자동 생성하지 않도록 한다 (Req 20.6).
+    DependsOn: SearchLambdaLogGroup
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-Search'
+      CodeUri: backend/src/
+      Handler: closeller.handler.handler
+      Timeout: 10
+      MemorySize: 128
+      Environment:
+        Variables:
+          # handler.py 가 읽는 환경변수(모듈 docstring의 환경변수 목록과 일치).
+          IMAGE_BUCKET: !Ref ImageBucket
+          CACHE_TABLE: !Ref CacheTable
+          COUNTER_TABLE: !Ref CounterTable
+          USE_MOCK_SEARCH: !Ref UseMockSearch
+          # 비밀 "값"이 아니라 SSM 파라미터 "이름"만 주입한다 (Req 21.4).
+          SERP_API_KEY_SSM_PARAM: !Ref SerpApiKeySsmParam
+          # rate_limit.py 가 읽는 상한 환경변수.
+          MONTHLY_CALL_LIMIT: !Ref MonthlyCallLimit
+          IP_DAILY_LIMIT: !Ref IpDailyLimit
+      # HTTP API 라우트 POST /search 를 이 함수에 연결한다 (Task 18.4, Req 20.4).
+      Events:
+        PostSearch:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /search
+            Method: POST
+      Policies:
+        # (1) Image_Bucket 객체 읽기/삭제만. 버킷 자체 권한·와일드카드 없음.
+        - Version: '2012-10-17'
+          Statement:
+            - Sid: SearchS3GetDeleteObject
+              Effect: Allow
+              Action:
+                - s3:GetObject
+                - s3:DeleteObject
+              Resource:
+                - !Sub '${ImageBucket.Arn}/*'
+        # (2) Cache_Table / Counter_Table 읽기·쓰기만. 두 테이블 ARN 으로만 한정.
+        #     (현재 테이블에는 GSI/LSI 가 없으므로 인덱스 ARN 은 추가하지 않는다.
+        #      인덱스가 생기면 "<Table>.Arn/index/*" 를 이 Resource 목록에 함께 넣는다.)
+        - Version: '2012-10-17'
+          Statement:
+            - Sid: SearchDynamoDbReadWrite
+              Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+                - dynamodb:UpdateItem
+              Resource:
+                - !GetAtt CacheTable.Arn
+                - !GetAtt CounterTable.Arn
+        # (3) SerpApi Key SSM 파라미터 "그 ARN 하나"에 대한 GetParameter 만.
+        #     파라미터 이름이 '/' 로 시작하므로 ARN 은 'parameter' + 이름(앞 '/' 포함) 형식.
+        - Version: '2012-10-17'
+          Statement:
+            - Sid: SearchSsmGetSerpApiKeyOnly
+              Effect: Allow
+              Action:
+                - ssm:GetParameter
+              Resource:
+                - !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter${SerpApiKeySsmParam}'
+        # (4) 고객 관리형 KMS 키로 SecureString 을 암호화한 경우에만, 그 키 ARN 에 한해 Decrypt.
+        #     AWS 관리형 기본 SSM 키면 이 문장 자체가 생성되지 않는다(최소 권한).
+        - !If
+          - HasSerpApiKmsKey
+          - Version: '2012-10-17'
+            Statement:
+              - Sid: SearchKmsDecryptSecureStringOnly
+                Effect: Allow
+                Action:
+                  - kms:Decrypt
+                Resource:
+                  - !Ref SerpApiKeyKmsKeyArn
+          - !Ref 'AWS::NoValue'
+
+  # ---------------------------------------------------------------------------
+  # CloudWatch 로그 그룹 (Task 18.5) — 로그 보존 14일 (Req 20.6)
+  #   Lambda는 호출 시 `/aws/lambda/<FunctionName>` 로그 그룹을 자동 생성하지만,
+  #   자동 생성 그룹은 보존 기간이 "무기한(Never expire)"이라 로그가 계속 쌓여 비용이 는다.
+  #   그래서 같은 이름의 로그 그룹을 명시적으로 선언하고 RetentionInDays: 14 를 건다.
+  #   - 두 함수 모두 FunctionName 을 명시(${AWS::StackName}-Upload / -Search)했으므로,
+  #     로그 그룹 이름을 그 함수 이름과 정확히 일치시켜야 보존 정책이 실제 함수 로그에 적용된다.
+  #   - 이름이 자동 생성 그룹과 동일하므로 CloudFormation 이 이 그룹을 "먼저" 만들어 두면
+  #     Lambda 는 새로 만들지 않고 이 그룹에 로그를 쓴다(이름 충돌로 배포가 깨지지 않도록
+  #     함수 이름과 동일한 LogGroupName 을 쓰고, 함수가 이 그룹에 의존하도록 DependsOn 을 둔다).
+  # ---------------------------------------------------------------------------
+  UploadLambdaLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${AWS::StackName}-Upload'
+      RetentionInDays: 14
+
+  SearchLambdaLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${AWS::StackName}-Search'
+      RetentionInDays: 14
+
+  # ---------------------------------------------------------------------------
+  # 비용 가드 (Task 18.5) — 상시 켜져 있는 유료 리소스 미정의 (Req 20.9)
+  #   이 템플릿은 서버리스/종량제 리소스와 소용량 Provisioned DynamoDB(무료 한도 대상)만 쓴다.
+  #   정의된 리소스 전체:
+  #     - AWS::Serverless::HttpApi      (요청당 과금, 유휴 시 0)
+  #     - AWS::S3::Bucket               (저장/요청당 과금, 1일 Lifecycle 로 보관 최소화)
+  #     - AWS::DynamoDB::Table x2       (Provisioned 1 RCU/1 WCU — 무료 한도 범위의 소용량)
+  #     - AWS::Serverless::Function x2  (호출당 과금, 유휴 시 0 — Provisioned Concurrency 미사용)
+  #     - AWS::Logs::LogGroup x2        (보존 14일로 저장 비용 상한)
+  #   아래 "상시 과금" 리소스 유형은 의도적으로 정의하지 않는다(Req 20.9):
+  #     - 컴퓨팅 상주:   AWS::EC2::Instance, AWS::AutoScaling::*, AWS::ECS/EKS 상주 노드
+  #     - 관리형 DB:     AWS::RDS::*, AWS::ElastiCache::*, AWS::Redshift::*, AWS::OpenSearchService::*
+  #     - 네트워크 상주: AWS::EC2::NatGateway, AWS::EC2::VPCEndpoint(Interface), AWS::GlobalAccelerator::*
+  #     - 로드밸런서:    AWS::ElasticLoadBalancing*::* (ALB/NLB/CLB)
+  #     - 동시성 예약:   Lambda ProvisionedConcurrencyConfig (유휴에도 과금)
+  #   ※ 위 유형이 추가되면 Req 20.9 위반이므로, 정적 확인(Task 18.7)에서 부재를 검증한다.
+  # ---------------------------------------------------------------------------
+
+Outputs:
+  HttpApiUrl:
+    Description: API Gateway HTTP API 기본 스테이지 엔드포인트 (POST /uploads, POST /search)
+    Value: !Sub 'https://${HttpApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}'
+
+  ImageBucketName:
+    Description: 업로드 이미지 저장용 S3 버킷 이름
+    Value: !Ref ImageBucket
+
+  CacheTableName:
+    Description: 검색 결과 캐시 DynamoDB 테이블 이름 (PK imageHash, TTL ttl)
+    Value: !Ref CacheTable
+
+  CounterTableName:
+    Description: 호출 수 카운터 DynamoDB 테이블 이름 (PK counterId, TTL ttl)
+    Value: !Ref CounterTable
+
+  UploadLambdaArn:
+    Description: Upload_Lambda(POST /uploads Presigned POST 발급) 함수 ARN
+    Value: !GetAtt UploadLambda.Arn
+
+  SearchLambdaArn:
+    Description: Search_Lambda(POST /search 검색 파이프라인) 함수 ARN
+    Value: !GetAtt SearchLambda.Arn

@@ -68,34 +68,34 @@
     - 태그: `# Feature: closeller-mvp, Property 10: IP는 단방향 해시로만 저장`
     - **Validates: Requirements 7.8**
 
-- [ ] 6. 백엔드 순수 모듈 — URL 도구
-  - [ ] 6.1 `url_tools.py` 구현
+- [x] 6. 백엔드 순수 모듈 — URL 도구
+  - [x] 6.1 `url_tools.py` 구현
     - URL 정규화(스킴·호스트 소문자, 추적 쿼리·프래그먼트 제거, 끝 슬래시 제거), http/https 스킴 검사
     - _Requirements: 9.6, 9.8_
-  - [ ] 6.2 중복 판정 기준 URL 정규화 속성 테스트
+  - [x] 6.2 중복 판정 기준 URL 정규화 속성 테스트
     - **Property 14: 중복 제거 후 정규화 URL 유일, 그룹당 첫 1건** (url_tools 정규화 부분)
     - 태그: `# Feature: closeller-mvp, Property 14: 중복 제거 후 정규화 URL 유일, 그룹당 첫 1건`
     - **Validates: Requirements 9.6**
-  - [ ] 6.3 스킴 필터 속성 테스트
+  - [x] 6.3 스킴 필터 속성 테스트
     - **Property 15: 모든 결과 링크는 http/https**
     - 태그: `# Feature: closeller-mvp, Property 15: 모든 결과 링크는 http/https`
     - **Validates: Requirements 9.8**
 
-- [ ] 7. 백엔드 순수 모듈 — 플랫폼 분류
-  - [ ] 7.1 `platform_map.py` 구현
+- [x] 7. 백엔드 순수 모듈 — 플랫폼 분류
+  - [x] 7.1 `platform_map.py` 구현
     - 도메인 → (플랫폼명, 국내/해외) 매핑표 한 곳에서 관리: 후루츠패밀리, 번개장터, 무신사, KREAM, eBay, Grailed, Vestiaire Collective
     - 호스트 추출·소문자·`www.` 제거, 미적중+근거없음 → "기타"/"미확인", 공식 홈페이지 후보 처리
     - _Requirements: 10.1, 10.2, 10.3, 10.4, 10.5, 10.6_
-  - [ ] 7.2 도메인 분류 속성 테스트
+  - [x] 7.2 도메인 분류 속성 테스트
     - **Property 16: 도메인 분류는 플랫폼·국내/해외 일관 결정, 미적중·근거없음→기타·미확인**
     - 태그: `# Feature: closeller-mvp, Property 16: 도메인 분류는 플랫폼·국내/해외 일관 결정, 미적중·근거없음→기타·미확인`
     - **Validates: Requirements 10.1, 10.3, 10.4, 10.5**
-  - [ ] 7.3 Platform_Map 단위 테스트
+  - [x] 7.3 Platform_Map 단위 테스트
     - 정의된 7개 플랫폼 각각의 도메인 분류 예시 검증
     - _Requirements: 10.1, 10.6_
 
-- [ ] 8. 백엔드 순수 모듈 — Match_Grade 산정
-  - [ ] 8.1 `match_grade.py` 구현
+- [x] 8. 백엔드 순수 모듈 — Match_Grade 산정
+  - [x] 8.1 `match_grade.py` 구현
     - (matchType, position) → "높음/보통/낮음" 3등급 산정표 구현, 순위 없음/무효 → "낮음", 숫자 점수 미사용
     - 휴리스틱임을 코드 주석에 명시 (Req 11.7)
     - _Requirements: 11.3, 11.4, 11.5, 11.6, 11.7_
@@ -107,38 +107,38 @@
     - 등급 경계(1~3/4~10/≥11, 유사 1~3/≥4) 예시 검증
     - _Requirements: 11.3, 11.4_
 
-- [ ] 9. 백엔드 순수 모듈 — 정규화 파이프라인
-  - [ ] 9.1 `normalize.py` 구현
+- [x] 9. 백엔드 순수 모듈 — 정규화 파이프라인
+  - [x] 9.1 `normalize.py` 구현
     - visual_matches → NormalizedResult 변환(공식 필드만), 필수 필드(title/image/link) 필터, 가격 파싱(price.value/currency 보존, extracted_value→정렬값, 없으면 "미확인"+null 유지), http/https 스킴 필터, 정규화 URL 기준 중복 제거(그룹 첫 1건), exact_matches 기반 동일/유사 구분, 서버 기본 정렬(가격 오름차순, 동일·미확인은 상품명 가나다순)
     - `url_tools.py`, `platform_map.py`, `match_grade.py` 연동
     - 응답에 없는 값 생성·추론 금지 (Req 9.9)
     - _Requirements: 9.1, 9.2, 9.4, 9.5, 9.6, 9.7, 9.8, 9.9, 11.1, 11.2_
-  - [ ] 9.2 필수 필드 필터 속성 테스트
+  - [x] 9.2 필수 필드 필터 속성 테스트
     - **Property 11: 정규화 결과는 필수 필드 모두 보유, 누락 시 제외**
     - 태그: `# Feature: closeller-mvp, Property 11: 정규화 결과는 필수 필드 모두 보유, 누락 시 제외`
     - **Validates: Requirements 9.1, 9.2**
-  - [ ] 9.3 가격 보존 속성 테스트
+  - [x] 9.3 가격 보존 속성 테스트
     - **Property 12: 가격 값과 통화는 변조 없이 보존**
     - 태그: `# Feature: closeller-mvp, Property 12: 가격 값과 통화는 변조 없이 보존`
     - **Validates: Requirements 9.4, 9.9**
-  - [ ] 9.4 가격 미확인 처리 속성 테스트
+  - [x] 9.4 가격 미확인 처리 속성 테스트
     - **Property 13: 가격 없으면 "미확인"·priceSortValue null·결과 유지**
     - 태그: `# Feature: closeller-mvp, Property 13: 가격 없으면 "미확인"·priceSortValue null·결과 유지`
     - **Validates: Requirements 9.5, 9.9**
-  - [ ] 9.5 중복 제거 속성 테스트
+  - [x] 9.5 중복 제거 속성 테스트
     - **Property 14: 중복 제거 후 정규화 URL 유일, 그룹당 첫 1건** (normalize 통합)
     - 태그: `# Feature: closeller-mvp, Property 14: 중복 제거 후 정규화 URL 유일, 그룹당 첫 1건`
     - **Validates: Requirements 9.6**
-  - [ ] 9.6 동일/유사 유형 구분 속성 테스트
+  - [x] 9.6 동일/유사 유형 구분 속성 테스트
     - **Property 18: 동일/유사 유형은 exact_matches로 결정**
     - 태그: `# Feature: closeller-mvp, Property 18: 동일/유사 유형은 exact_matches로 결정`
     - **Validates: Requirements 11.1, 11.2**
-  - [ ] 9.7 정규화 단위 테스트 (가격 파싱·정렬)
+  - [x] 9.7 정규화 단위 테스트 (가격 파싱·정렬)
     - 가격 파싱 엣지 케이스와 서버 기본 정렬 예시 검증
     - _Requirements: 9.5, 9.7_
 
 - [ ] 10. 백엔드 순수 모듈 — Mock 데이터
-  - [ ] 10.1 `mock.py` 구현
+  - [x] 10.1 `mock.py` 구현
     - 고정 MOCK 데이터 생성, 모든 항목 `source="MOCK"`, 링크는 `example.com` 예시 도메인만 사용(실제 상점 유사 링크 금지)
     - _Requirements: 19.1, 19.2, 19.5_
   - [ ]* 10.2 Mock 데이터 속성/단위 테스트 (순수 부분)
@@ -146,11 +146,11 @@
     - 태그: `# Feature: closeller-mvp, Property 24: Mock 모드는 외부 미호출+source=MOCK+안전 링크만`
     - **Validates: Requirements 19.2, 19.5**
 
-- [ ] 11. 체크포인트 — 순수 모듈 테스트 통과 확인
+- [x] 11. 체크포인트 — 순수 모듈 테스트 통과 확인
   - 모든 테스트가 통과하는지 확인하고, 의문이 생기면 사용자에게 묻는다.
 
-- [ ] 12. 백엔드 I/O 모듈 — 캐시
-  - [ ] 12.1 `cache.py` 구현
+- [x] 12. 백엔드 I/O 모듈 — 캐시
+  - [x] 12.1 `cache.py` 구현
     - Cache_Table 조회/저장, 저장 시 `ttl = createdAt + 86400`(24시간), `currencyMixed` 저장. boto3는 테스트에서 모킹
     - _Requirements: 6.2, 6.3, 6.4_
   - [ ]* 12.2 캐시 TTL 속성 테스트
@@ -158,20 +158,20 @@
     - 태그: `# Feature: closeller-mvp, Property 8: 캐시 저장 TTL 항상 24시간`
     - **Validates: Requirements 6.4**
 
-- [ ] 13. 백엔드 I/O 모듈 — 호출 제한
-  - [ ] 13.1 `rate_limit.py` 구현
+- [x] 13. 백엔드 I/O 모듈 — 호출 제한
+  - [x] 13.1 `rate_limit.py` 구현
     - Counter_Table 조회·조건부 원자 증가(월간 `GLOBAL#YYYY-MM`, 일일 `IP#<hash>#YYYY-MM-DD`), 상한 환경변수(월간 200/IP일일 5), 조건 실패 시 값 유지, IP 해시만 저장, TTL. boto3 모킹
     - _Requirements: 7.1, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8_
-  - [ ] 13.2 호출 제한 속성 테스트
+  - [x] 13.2 호출 제한 속성 테스트
     - **Property 9: 호출 카운터는 상한 절대 초과하지 않음**
     - 태그: `# Feature: closeller-mvp, Property 9: 호출 카운터는 상한 절대 초과하지 않음`
     - **Validates: Requirements 7.5, 7.6, 7.7**
-  - [ ] 13.3 호출 제한 단위 테스트
+  - [x] 13.3 호출 제한 단위 테스트
     - 상한 도달·초과 시 증가 실패와 값 유지 예시
     - _Requirements: 7.5, 7.6_
 
-- [ ] 14. 백엔드 I/O 모듈 — SerpApi 클라이언트 (실제 호출 금지)
-  - [ ] 14.1 `serp_client.py` 구현
+- [x] 14. 백엔드 I/O 모듈 — SerpApi 클라이언트 (실제 호출 금지)
+  - [x] 14.1 `serp_client.py` 구현
     - `engine=google_lens`, `url`(5분 Presigned GET), `api_key`(SSM SecureString 런타임 로드) 요청 구성, 공식 문서 필드만 사용·추측 금지, visual_matches 반환 파싱
     - 🔒 **실제 SerpApi 호출은 사용자 승인 전 실행하지 않는다**(Req 23.1). 테스트는 모킹 응답만 사용
     - _Requirements: 8.3, 8.4, 8.5, 8.6_
@@ -179,13 +179,13 @@
     - 모킹된 visual_matches 1~2 예시로 공식 필드만 매핑하는지 확인(실제 호출 없음)
     - _Requirements: 8.5, 8.6_
 
-- [ ] 15. 백엔드 I/O 모듈 — 원본 삭제
-  - [ ] 15.1 `cleanup.py` 구현
+- [x] 15. 백엔드 I/O 모듈 — 원본 삭제
+  - [x] 15.1 `cleanup.py` 구현
     - 검색 처리 완료 시(성공·실패 무관) Image_Bucket 원본 즉시 삭제. boto3 모킹
     - _Requirements: 12.1_
 
-- [ ] 16. 백엔드 — handler 파이프라인 조립
-  - [ ] 16.1 Upload_Lambda 핸들러 구현 (`POST /uploads`)
+- [x] 16. 백엔드 — handler 파이프라인 조립
+  - [x] 16.1 Upload_Lambda 핸들러 구현 (`POST /uploads`)
     - Presigned POST 발급(300초, 10MB `content-length-range`, 허용 Content-Type 고정), 객체 키 `uploads/{uuid4}`, 원본 파일명 미저장, 3초 이내 응답, 외부 호출 없음
     - _Requirements: 4.1, 4.2, 4.4, 4.5_
   - [ ]* 16.2 Upload_Lambda 속성 테스트
@@ -196,7 +196,7 @@
     - **Property 2: Presigned POST 정책은 300초·10MB·Content-Type 고정 조건 포함**
     - 태그: `# Feature: closeller-mvp, Property 2: Presigned POST 정책은 300초·10MB·Content-Type 고정 조건 포함`
     - **Validates: Requirements 4.2**
-  - [ ] 16.4 Search_Lambda 핸들러 파이프라인 조립 (`POST /search`)
+  - [x] 16.4 Search_Lambda 핸들러 파이프라인 조립 (`POST /search`)
     - 순서: 검증(존재/크기/매직 바이트, 실패 시 SerpApi 미호출) → SHA-256 해시 → 캐시 조회(적중 시 반환·카운터 미증가) → 호출 제한 확인·조건부 증가 → Presigned GET(5분) 발급 → SerpApi 호출(또는 Mock) → 정규화·분류·등급·정렬 → 캐시 저장(TTL 24h) → 원본 즉시 삭제(모든 경로)
     - IP는 `event.requestContext.http.sourceIp`에서만 읽는다(본문 금지)
     - `USE_MOCK_SEARCH=true`면 `mock.py` 반환·외부 미호출·카운터 미증가
@@ -220,44 +220,44 @@
     - 태그: `# Feature: closeller-mvp, Property 24: Mock 모드는 외부 미호출+source=MOCK+안전 링크만`
     - **Validates: Requirements 19.1, 19.2, 19.5**
 
-- [ ] 17. 체크포인트 — 백엔드 전체 테스트 통과 확인
+- [x] 17. 체크포인트 — 백엔드 전체 테스트 통과 확인
   - 모든 백엔드 단위·속성 테스트가 통과하는지 확인하고, 의문이 생기면 사용자에게 묻는다.
 
-- [ ] 18. SAM 인프라 정의 (`template.yaml`) — 로컬 작성·검증만
-  - [ ] 18.1 S3 Image_Bucket 정의
+- [x] 18. SAM 인프라 정의 (`template.yaml`) — 로컬 작성·검증만
+  - [x] 18.1 S3 Image_Bucket 정의
     - 비공개(Block Public Access 전체), 서버 측 암호화, 허용 출처를 파라미터로 받는 CORS, 1일 후 객체 삭제 Lifecycle
     - _Requirements: 12.2, 20.1_
-  - [ ] 18.2 DynamoDB Cache_Table · Counter_Table 정의
+  - [x] 18.2 DynamoDB Cache_Table · Counter_Table 정의
     - Provisioned 소용량, TTL 속성 지정(`ttl`)
     - _Requirements: 20.2_
-  - [ ] 18.3 Lambda 함수 정의 (최소 권한 IAM)
+  - [x] 18.3 Lambda 함수 정의 (최소 권한 IAM)
     - Upload_Lambda, Search_Lambda를 작은 메모리·짧은 타임아웃으로, 각 함수에 필요한 리소스 ARN만 부여(와일드카드 `*` 금지), SSM SecureString 파라미터는 참조만(값 미포함)
     - _Requirements: 20.3, 20.5, 20.8, 21.4_
-  - [ ] 18.4 API Gateway HTTP API 정의
+  - [x] 18.4 API Gateway HTTP API 정의
     - 라우트 `POST /uploads`(Upload_Lambda), `POST /search`(Search_Lambda), 스로틀(rate 기본 2/burst 기본 5, 환경변수·허용 범위 1~10,000), CORS 허용 출처 파라미터
     - _Requirements: 7.9, 20.4_
-  - [ ] 18.5 CloudWatch 로그·비용 가드 정의
+  - [x] 18.5 CloudWatch 로그·비용 가드 정의
     - 로그 보존 14일, 상시 유료 리소스(EC2/RDS/NAT Gateway 등) 미정의
     - _Requirements: 20.6, 20.9_
-  - [ ] 18.6 amplify.yml 작성
+  - [x] 18.6 amplify.yml 작성
     - `frontend/` 디렉터리를 Amplify Hosting으로 빌드하도록 정의
     - _Requirements: 20.7_
   - [ ]* 18.7 인프라 정적 검증 테스트
     - `template.yaml`에 Lifecycle 1일, 로그 14일, 최소 권한 IAM(와일드카드 없음), 스로틀/CORS 파라미터 존재를 정적 확인(스냅샷)
     - _Requirements: 20.1, 20.3, 20.6, 20.8_
 
-- [ ] 19. 프론트엔드 — 라우팅과 5개 화면 뼈대
-  - [ ] 19.1 라우팅과 화면 구성
+- [x] 19. 프론트엔드 — 라우팅과 5개 화면 뼈대
+  - [x] 19.1 라우팅과 화면 구성
     - HOME(`/`), VISUAL SEARCH(`/search`), RESULTS(`/results`), ARCHIVE(`/archive`), ABOUT(`/about`) 라우트
     - HOME에 메인 문구 그대로 표시: `CLOSELLER.` / `FIND WHAT THEY WEAR.` / `UPLOAD. IDENTIFY. DISCOVER.` / `사진 한 장으로 당신이 찾던 옷을 발견하세요.`
     - ARCHIVE는 "COMING SOON" 안내만, ABOUT에 Match_Grade가 유형·순위 기반 휴리스틱임을 명시
     - _Requirements: 11.7, 18.1, 18.2_
 
 - [ ] 20. 프론트엔드 — 업로드·크롭·동의 (VISUAL SEARCH)
-  - [ ] 20.1 UploadDropzone · ImagePreview 구현
+  - [x] 20.1 UploadDropzone · ImagePreview 구현
     - 드래그앤드롭 영역 + 파일 선택 버튼, 모바일 카메라(`capture`)·앨범 선택 입력, 선택 이미지 미리보기
     - _Requirements: 1.1, 1.2, 1.3_
-  - [ ] 20.2 ClientFileValidator 구현
+  - [x] 20.2 ClientFileValidator 구현
     - 형식(JPG/PNG/WEBP)·크기(10MB) 클라이언트 검증과 거부 메시지
     - _Requirements: 1.4, 1.5_
   - [ ]* 20.3 ClientFileValidator 속성 테스트 (fast-check)
@@ -265,7 +265,7 @@
     - 태그: `# Feature: closeller-mvp, Property 3: 클라이언트 형식 검증은 jpeg/png/webp만 통과`
     - fast-check 최소 100회
     - **Validates: Requirements 1.4**
-  - [ ] 20.4 CropTool 구현 (브라우저 크롭)
+  - [x] 20.4 CropTool 구현 (브라우저 크롭)
     - canvas 기반 브라우저 내 크롭, 크롭 결과만 업로드 대상, 원본 서버 미전송
     - _Requirements: 2.1, 2.2, 2.3, 2.4_
   - [ ] 20.5 ConsentGate 구현
@@ -351,7 +351,7 @@
   - [ ] 25.3 SAM 로컬 검증
     - `sam validate` + `sam build` 통과(승인 불필요), 결과 요약 보고
     - _Requirements: 23.2, 24.3, 24.5_
-  - [ ] 25.4 Mock 로컬 E2E
+  - [x] 25.4 Mock 로컬 E2E
     - `USE_MOCK_SEARCH=true` + `sam local`로 업로드→크롭→결과 화면 전체 흐름을 API Key 없이 로컬 수행, 결과 요약 보고
     - _Requirements: 19.6, 24.4, 24.5_
 
