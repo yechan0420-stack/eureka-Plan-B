@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * CLOSELLER — 럭셔리 패션 에디토리얼 전역 스타일 (Req 18.3, 18.4)
+ * 배경 #0A0A0A · 보조 배경 #181818 · 글자 #F5F5F5 · 포인트 #C5F277
+ * 큰 볼드 모노톤 타이포 / 은은한 필름 그레인 / 네온·그라데이션·과한 그림자 금지
+ */
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-text font-sans antialiased;
+    margin: 0;
+    /* 모노톤 톤온톤: 선명한 색 대비 대신 톤 차이로 위계를 만든다 */
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* 큰 볼드 에디토리얼 헤드라인 */
+  h1,
+  h2,
+  h3 {
+    @apply font-sans font-bold tracking-tightest;
+    text-transform: uppercase;
+    line-height: 0.95;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* 포커스는 포인트 컬러로만 — 그림자/글로우 없이 */
+  :focus-visible {
+    outline: 2px solid theme('colors.accent');
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /*
+   * 은은한 필름 그레인 오버레이.
+   * SVG feTurbulence 노이즈를 매우 낮은 불투명도로 전체에 덮는다.
+   * 고정 위치 + pointer-events:none 으로 상호작용을 방해하지 않는다.
+   * 그라데이션/네온이 아닌 질감이므로 디자인 규칙을 위반하지 않는다.
+   */
+  .film-grain {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+  }
+
+  /* 상품 이미지 중심 반응형 그리드 (Req 18.4) */
+  .editorial-grid {
+    @apply grid gap-px bg-surface;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @screen md {
+    .editorial-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @screen lg {
+    .editorial-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

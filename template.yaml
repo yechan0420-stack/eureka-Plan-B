@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  CLOSELLER 1차 MVP - AWS SAM 인프라 (자리표시자 스텁)
+
+# =============================================================================
+# [자리표시자] 이 파일은 Task 1(스캐폴딩)에서 생성된 최소 스텁입니다.
+#
+# 실제 AWS 리소스 정의는 Task 18(SAM 인프라 정의)에서 채워집니다:
+#   - 18.1 S3 Image_Bucket (비공개, 암호화, CORS, 1일 Lifecycle)
+#   - 18.2 DynamoDB Cache_Table / Counter_Table (Provisioned 소용량, TTL)
+#   - 18.3 Lambda 함수 (Upload_Lambda, Search_Lambda, 최소 권한 IAM)
+#   - 18.4 API Gateway HTTP API (POST /uploads, POST /search, 스로틀, CORS)
+#   - 18.5 CloudWatch 로그(14일 보존), 비용 가드
+#
+# 승인 규칙(Req 23.1): sam deploy 및 AWS 리소스 생성/변경/삭제는 사용자 승인 전 실행하지 않는다.
+# 이 단계에서는 실제 리소스를 정의하지 않는다.
+# =============================================================================
+
+# TODO(Task 18): Parameters, Resources, Outputs 를 여기에 정의한다.
+Resources: {}

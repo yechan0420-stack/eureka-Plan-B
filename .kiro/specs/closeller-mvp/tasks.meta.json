@@ -1,0 +1,48 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. 프로젝트 스캐폴딩과 공통 설정": [
+      {
+        "executionId": "c796fba6-cb9e-489c-9cb7-52acac5c3bf2",
+        "chatSessionId": "sess_575e5ec1-334d-4e78-9832-4556d61bd3c7",
+        "timestamp": 1795669477575
+      },
+      {
+        "executionId": "c796fba6-cb9e-489c-9cb7-52acac5c3bf2",
+        "chatSessionId": "sess_575e5ec1-334d-4e78-9832-4556d61bd3c7",
+        "timestamp": 1795669616024
+      }
+    ],
+    "2.1 Vite + React + TypeScript(strict) 프로젝트 구성": [
+      {
+        "executionId": "8a5533a0-6443-4b1a-9b23-c05bd6f28c26",
+        "chatSessionId": "sess_bbee3ebe-8497-4d80-98ad-85f1a56e53e9",
+        "timestamp": 1795669763789
+      },
+      {
+        "executionId": "8a5533a0-6443-4b1a-9b23-c05bd6f28c26",
+        "chatSessionId": "sess_bbee3ebe-8497-4d80-98ad-85f1a56e53e9",
+        "timestamp": 1795670011114
+      }
+    ],
+    "2.2 Tailwind 디자인 토큰과 전역 레이아웃 설정": [
+      {
+        "executionId": "8a5533a0-6443-4b1a-9b23-c05bd6f28c26",
+        "chatSessionId": "sess_bbee3ebe-8497-4d80-98ad-85f1a56e53e9",
+        "timestamp": 1795670014574
+      },
+      {
+        "executionId": "8a5533a0-6443-4b1a-9b23-c05bd6f28c26",
+        "chatSessionId": "sess_bbee3ebe-8497-4d80-98ad-85f1a56e53e9",
+        "timestamp": 1795670152587
+      }
+    ],
+    "2. 프론트엔드 프로젝트 초기화 (React + TS strict + Vite + Tailwind)": [
+      {
+        "executionId": "8a5533a0-6443-4b1a-9b23-c05bd6f28c26",
+        "chatSessionId": "sess_bbee3ebe-8497-4d80-98ad-85f1a56e53e9",
+        "timestamp": 1795670152721
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+# ===== 환경변수/비밀값 =====
+# 실제 비밀값과 자격 증명은 절대 커밋하지 않는다 (Req 21.3, 21.4)
+.env
+.env.*
+!.env.example
+
+# ===== Node / 프론트엔드 (Vite + React + TS) =====
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+coverage/
+
+# ===== Python / 백엔드 (Lambda) =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+
+# ===== AWS SAM =====
+.aws-sam/
+samconfig.toml
+
+# ===== 에디터 / OS =====
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ===== 로그 =====
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
