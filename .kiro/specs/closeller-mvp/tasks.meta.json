@@ -737,6 +737,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710021434
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710674176
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710938207
       }
     ],
     "21.1 API 클라이언트 구현": [
@@ -749,6 +759,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710022278
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710947768
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795711235005
       }
     ],
     "21.2 SearchProgress 상태 머신 구현": [
@@ -761,6 +781,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710023613
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795711243840
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795711621517
       }
     ],
     "22.1 ResultGrid · ProductCard 구현": [
@@ -773,6 +803,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710024792
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795711630873
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795711931807
       }
     ],
     "22.2 TestDataBadge · 구매 버튼 제어 구현": [
@@ -785,6 +825,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710025674
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795711936506
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795712199904
       }
     ],
     "22.4 SortControls 구현": [
@@ -797,6 +847,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710035294
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795712208835
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795712503164
       }
     ],
     "22.8 FilterControls 구현": [
@@ -809,6 +869,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710036669
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795712512619
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795712819502
       }
     ],
     "22.10 ErrorNotice 구현": [
@@ -821,6 +891,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710037623
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795712828819
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795713082873
       }
     ],
     "23. 체크포인트 — 프론트엔드 빌드·테스트 통과 확인": [
@@ -833,6 +913,16 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710039006
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795713088663
+      },
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795713139313
       }
     ],
     "24.1 README.md 작성": [
@@ -1002,6 +1092,27 @@
         "executionId": "6ffbb149-ee1a-48cd-9f91-e0be76308445",
         "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
         "timestamp": 1795710012304
+      }
+    ],
+    "20. 프론트엔드 — 업로드·크롭·동의 (VISUAL SEARCH)": [
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795710938640
+      }
+    ],
+    "21. 프론트엔드 — API 클라이언트와 진행 상태": [
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795711621960
+      }
+    ],
+    "22. 프론트엔드 — 결과 화면 (RESULTS)": [
+      {
+        "executionId": "7b2d8e5b-db64-4505-a2c2-8148b6b3534d",
+        "chatSessionId": "sess_e7d2e2c9-7e7f-41ec-bedd-9a11678d68c6",
+        "timestamp": 1795713083309
       }
     ]
   }

@@ -253,7 +253,7 @@
     - ARCHIVE는 "COMING SOON" 안내만, ABOUT에 Match_Grade가 유형·순위 기반 휴리스틱임을 명시
     - _Requirements: 11.7, 18.1, 18.2_
 
-- [ ] 20. 프론트엔드 — 업로드·크롭·동의 (VISUAL SEARCH)
+- [x] 20. 프론트엔드 — 업로드·크롭·동의 (VISUAL SEARCH)
   - [x] 20.1 UploadDropzone · ImagePreview 구현
     - 드래그앤드롭 영역 + 파일 선택 버튼, 모바일 카메라(`capture`)·앨범 선택 입력, 선택 이미지 미리보기
     - _Requirements: 1.1, 1.2, 1.3_
@@ -268,7 +268,7 @@
   - [x] 20.4 CropTool 구현 (브라우저 크롭)
     - canvas 기반 브라우저 내 크롭, 크롭 결과만 업로드 대상, 원본 서버 미전송
     - _Requirements: 2.1, 2.2, 2.3, 2.4_
-  - [ ] 20.5 ConsentGate 구현
+  - [x] 20.5 ConsentGate 구현
     - 외부 전송 안내 문구 + Consent_Checkbox, 미동의 시 검색 시작 비활성화
     - _Requirements: 3.1, 3.2, 3.3_
   - [ ]* 20.6 ConsentGate 테스트 (fast-check)
@@ -276,26 +276,26 @@
     - 태그: `# Feature: closeller-mvp, Property 26: 동의 상태와 검색 시작 가능 여부 일치`
     - **Validates: Requirements 3.2**
 
-- [ ] 21. 프론트엔드 — API 클라이언트와 진행 상태
-  - [ ] 21.1 API 클라이언트 구현
+- [x] 21. 프론트엔드 — API 클라이언트와 진행 상태
+  - [x] 21.1 API 클라이언트 구현
     - 베이스 URL `VITE_API_BASE_URL` 사용, `POST /uploads`→Presigned POST 직접 업로드→`POST /search` 흐름, 외부 API Key 미포함
     - _Requirements: 4.1, 4.3, 21.5_
-  - [ ] 21.2 SearchProgress 상태 머신 구현
+  - [x] 21.2 SearchProgress 상태 머신 구현
     - UPLOADING IMAGE → SEARCHING MARKETPLACES → MATCHING PRODUCTS → RESULTS READY 순서 표시·전이, 완료 시 RESULTS 화면 전환
     - _Requirements: 13.1, 13.2_
 
-- [ ] 22. 프론트엔드 — 결과 화면 (RESULTS)
-  - [ ] 22.1 ResultGrid · ProductCard 구현
+- [x] 22. 프론트엔드 — 결과 화면 (RESULTS)
+  - [x] 22.1 ResultGrid · ProductCard 구현
     - 상품 카드 그리드, 카드에 이미지·상품명·플랫폼·가격+통화 또는 "미확인"·동일/유사 배지·Match_Grade·원본 이동 버튼(새 탭), 브랜드 있을 때 표시
     - _Requirements: 14.1, 14.2, 14.3, 14.4_
-  - [ ] 22.2 TestDataBadge · 구매 버튼 제어 구현
+  - [x] 22.2 TestDataBadge · 구매 버튼 제어 구현
     - source=MOCK이면 "TEST DATA" 배지+구매 버튼 비활성, SERP면 배지 없음+활성
     - _Requirements: 19.3, 19.4_
   - [ ]* 22.3 ProductCard/TestDataBadge 테스트 (fast-check)
     - **Property 25: MOCK 결과 렌더는 TEST DATA 배지+구매 비활성, SERP는 활성**
     - 태그: `# Feature: closeller-mvp, Property 25: MOCK 결과 렌더는 TEST DATA 배지+구매 비활성, SERP는 활성`
     - **Validates: Requirements 19.3, 19.4**
-  - [ ] 22.4 SortControls 구현
+  - [x] 22.4 SortControls 구현
     - 가격 낮은순/높은순(미확인은 항상 뒤, 안정 정렬), 일치도 높은순(높음>보통>낮음, 안정 정렬), 기본값 일치도 높은순, 통화 혼재 시 변환 없이 숫자값 정렬+상단 안내 문구
     - _Requirements: 15.1, 15.2, 15.3, 15.4, 15.5, 15.6, 15.7_
   - [ ]* 22.5 가격 정렬 속성 테스트 (fast-check)
@@ -310,18 +310,18 @@
     - **Property 22: 통화 혼재 시 값 보존+currencyMixed=true**
     - 태그: `# Feature: closeller-mvp, Property 22: 통화 혼재 시 값 보존+currencyMixed=true`
     - **Validates: Requirements 15.4**
-  - [ ] 22.8 FilterControls 구현
+  - [x] 22.8 FilterControls 구현
     - 국내/해외, 동일/유사, 플랫폼 필터로 부분집합만 표시
     - _Requirements: 16.1, 16.2, 16.3_
   - [ ]* 22.9 필터 속성 테스트 (fast-check)
     - **Property 23: 필터 결과는 정확한 부분집합**
     - 태그: `# Feature: closeller-mvp, Property 23: 필터 결과는 정확한 부분집합`
     - **Validates: Requirements 16.1, 16.2, 16.3**
-  - [ ] 22.10 ErrorNotice 구현
+  - [x] 22.10 ErrorNotice 구현
     - errorCode별 한국어 전용 메시지: 업로드 실패/시간 초과/결과 없음/한도 초과를 각각 구분 표시
     - _Requirements: 17.1, 17.2, 17.3, 17.4_
 
-- [ ] 23. 체크포인트 — 프론트엔드 빌드·테스트 통과 확인
+- [x] 23. 체크포인트 — 프론트엔드 빌드·테스트 통과 확인
   - 모든 테스트가 통과하는지 확인하고, 의문이 생기면 사용자에게 묻는다.
 
 - [ ] 24. 문서화
