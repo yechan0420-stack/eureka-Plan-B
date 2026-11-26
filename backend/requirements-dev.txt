@@ -1,0 +1,7 @@
+# CLOSELLER 백엔드 개발·테스트 의존성
+# 런타임 의존성 포함
+-r requirements.txt
+
+# 테스트 프레임워크: pytest, 속성 기반 테스트: hypothesis (design.md 백엔드 테스트 전략)
+pytest
+hypothesis

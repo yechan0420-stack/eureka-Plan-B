@@ -34,36 +34,36 @@
     - 큰 볼드 모노톤 타이포, 은은한 필름 그레인, 네온/그라데이션/과한 그림자 금지, 모바일/PC 반응형 기반 레이아웃
     - _Requirements: 18.3, 18.4_
 
-- [ ] 3. 백엔드 프로젝트 초기화 (Python + pytest + hypothesis)
+- [x] 3. 백엔드 프로젝트 초기화 (Python + pytest + hypothesis)
   - `backend/` 패키지 구조, `requirements.txt`(또는 `pyproject.toml`)에 `pytest`, `hypothesis`, `boto3` 추가
   - `backend/src/` 소스 디렉터리, `backend/tests/` 테스트 디렉터리, `pytest` 설정
   - _Requirements: 코드/문서 규칙(검증·정규화·분류 로직을 핸들러와 분리)_
 
-- [ ] 4. 백엔드 순수 모듈 — 데이터 모델과 검증
-  - [ ] 4.1 NormalizedResult 데이터 모델 정의
+- [x] 4. 백엔드 순수 모듈 — 데이터 모델과 검증
+  - [x] 4.1 NormalizedResult 데이터 모델 정의
     - `backend/src/models.py`에 `NormalizedResult` dataclass(frozen) 정의: title, link, image_url, price, currency, price_sort_value, platform, region, match_type, match_grade, source, brand(기본 None)
     - _Requirements: 9.1_
-  - [ ] 4.2 `validation.py` 구현 (크기·매직 바이트)
+  - [x] 4.2 `validation.py` 구현 (크기·매직 바이트)
     - 크기 10MB 이하 검증, 매직 바이트로 JPG/PNG/WEBP 시그니처만 통과하는 순수 함수
     - _Requirements: 5.2, 5.3_
-  - [ ] 4.3 `validation.py` 속성 테스트 작성
+  - [x] 4.3 `validation.py` 속성 테스트 작성
     - **Property 4: 매직 바이트 검증은 실제 JPG/PNG/WEBP만 통과**
     - 태그: `# Feature: closeller-mvp, Property 4: 매직 바이트 검증은 실제 JPG/PNG/WEBP만 통과`
     - hypothesis 최소 100회 반복
     - **Validates: Requirements 5.2, 5.3**
-  - [ ] 4.4 `validation.py` 단위 테스트 작성
+  - [x] 4.4 `validation.py` 단위 테스트 작성
     - 매직 바이트 예시(정상 JPG/PNG/WEBP, 위조, 크기 초과) 엣지 케이스
     - _Requirements: 5.2, 5.3_
 
-- [ ] 5. 백엔드 순수 모듈 — 해싱
-  - [ ] 5.1 `hashing.py` 구현
+- [x] 5. 백엔드 순수 모듈 — 해싱
+  - [x] 5.1 `hashing.py` 구현
     - 이미지 바이트 SHA-256 해시 함수, IP 단방향 해시(SHA-256) 함수
     - _Requirements: 6.1, 7.8_
-  - [ ]* 5.2 SHA-256 결정성 속성 테스트
+  - [x] 5.2 SHA-256 결정성 속성 테스트
     - **Property 6: SHA-256 해시 결정성**
     - 태그: `# Feature: closeller-mvp, Property 6: SHA-256 해시 결정성`
     - **Validates: Requirements 6.1**
-  - [ ]* 5.3 IP 단방향 해시 속성 테스트
+  - [x] 5.3 IP 단방향 해시 속성 테스트
     - **Property 10: IP는 단방향 해시로만 저장**
     - 태그: `# Feature: closeller-mvp, Property 10: IP는 단방향 해시로만 저장`
     - **Validates: Requirements 7.8**

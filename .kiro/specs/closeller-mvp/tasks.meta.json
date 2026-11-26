@@ -1,5 +1,10 @@
 {
-  "pbtResults": {},
+  "pbtResults": {
+    "5.2 SHA-256 결정성 속성 테스트": {
+      "status": "passed",
+      "lastRunTimestamp": 1795675038597
+    }
+  },
   "executionHistory": {
     "1. 프로젝트 스캐폴딩과 공통 설정": [
       {
@@ -42,6 +47,116 @@
         "executionId": "8a5533a0-6443-4b1a-9b23-c05bd6f28c26",
         "chatSessionId": "sess_bbee3ebe-8497-4d80-98ad-85f1a56e53e9",
         "timestamp": 1795670152721
+      }
+    ],
+    "3. 백엔드 프로젝트 초기화 (Python + pytest + hypothesis)": [
+      {
+        "executionId": "0f77e387-7d19-4779-b770-ee246afd6206",
+        "chatSessionId": "sess_d21eb71e-de83-46c7-9873-4c01c32d6b47",
+        "timestamp": 1795671321682
+      },
+      {
+        "executionId": "0f77e387-7d19-4779-b770-ee246afd6206",
+        "chatSessionId": "sess_d21eb71e-de83-46c7-9873-4c01c32d6b47",
+        "timestamp": 1795671587651
+      }
+    ],
+    "4.1 NormalizedResult 데이터 모델 정의": [
+      {
+        "executionId": "32e99324-a72d-42d8-a44a-5bd6105f87c8",
+        "chatSessionId": "sess_e3fe1665-3cb8-4df0-9d86-5c1bd23e2e7b",
+        "timestamp": 1795671758673
+      },
+      {
+        "executionId": "32e99324-a72d-42d8-a44a-5bd6105f87c8",
+        "chatSessionId": "sess_e3fe1665-3cb8-4df0-9d86-5c1bd23e2e7b",
+        "timestamp": 1795671882788
+      }
+    ],
+    "4.2 `validation.py` 구현 (크기·매직 바이트)": [
+      {
+        "executionId": "b4c31a43-df11-4755-ab85-e243e87d4ea4",
+        "chatSessionId": "sess_92cc28b5-164b-432d-94b4-7eb3bb3fe97f",
+        "timestamp": 1795671932800
+      },
+      {
+        "executionId": "b4c31a43-df11-4755-ab85-e243e87d4ea4",
+        "chatSessionId": "sess_92cc28b5-164b-432d-94b4-7eb3bb3fe97f",
+        "timestamp": 1795672078804
+      }
+    ],
+    "4.3 `validation.py` 속성 테스트 작성": [
+      {
+        "executionId": "f71edf53-01d8-4ffc-b3ac-a2a4ef8eee06",
+        "chatSessionId": "sess_b1ff32e0-0f8b-41ce-b8ed-9e9b23d293e4",
+        "timestamp": 1795672102150
+      },
+      {
+        "executionId": "f71edf53-01d8-4ffc-b3ac-a2a4ef8eee06",
+        "chatSessionId": "sess_b1ff32e0-0f8b-41ce-b8ed-9e9b23d293e4",
+        "timestamp": 1795673432774
+      }
+    ],
+    "4.4 `validation.py` 단위 테스트 작성": [
+      {
+        "executionId": "397b0e00-ab65-417f-b849-5fa91c62616b",
+        "chatSessionId": "sess_652f0f10-4ffa-451d-b50f-bf61aad07795",
+        "timestamp": 1795673710230
+      },
+      {
+        "executionId": "397b0e00-ab65-417f-b849-5fa91c62616b",
+        "chatSessionId": "sess_652f0f10-4ffa-451d-b50f-bf61aad07795",
+        "timestamp": 1795674297276
+      }
+    ],
+    "4. 백엔드 순수 모듈 — 데이터 모델과 검증": [
+      {
+        "executionId": "397b0e00-ab65-417f-b849-5fa91c62616b",
+        "chatSessionId": "sess_652f0f10-4ffa-451d-b50f-bf61aad07795",
+        "timestamp": 1795674297610
+      }
+    ],
+    "5.1 `hashing.py` 구현": [
+      {
+        "executionId": "b13fa1a7-09d6-4d17-bd44-19d90ed4ef29",
+        "chatSessionId": "sess_73b346d4-9785-4b51-bc6c-214be2d04804",
+        "timestamp": 1795674453244
+      },
+      {
+        "executionId": "b13fa1a7-09d6-4d17-bd44-19d90ed4ef29",
+        "chatSessionId": "sess_73b346d4-9785-4b51-bc6c-214be2d04804",
+        "timestamp": 1795674747474
+      }
+    ],
+    "5. 백엔드 순수 모듈 — 해싱": [
+      {
+        "executionId": "b13fa1a7-09d6-4d17-bd44-19d90ed4ef29",
+        "chatSessionId": "sess_73b346d4-9785-4b51-bc6c-214be2d04804",
+        "timestamp": 1795674747745
+      }
+    ],
+    "5.2 SHA-256 결정성 속성 테스트": [
+      {
+        "executionId": "8780fdb8-4dbf-423e-922b-0004d8ff9534",
+        "chatSessionId": "sess_f07df7a2-8640-46cf-850b-b8c84aa2956f",
+        "timestamp": 1795674836442
+      },
+      {
+        "executionId": "8780fdb8-4dbf-423e-922b-0004d8ff9534",
+        "chatSessionId": "sess_f07df7a2-8640-46cf-850b-b8c84aa2956f",
+        "timestamp": 1795675056553
+      }
+    ],
+    "5.3 IP 단방향 해시 속성 테스트": [
+      {
+        "executionId": "a251dbae-e69a-424a-b532-1c9ed452eef2",
+        "chatSessionId": "sess_faf1b99a-14f6-444d-93ec-dbf85faee090",
+        "timestamp": 1795675120196
+      },
+      {
+        "executionId": "a251dbae-e69a-424a-b532-1c9ed452eef2",
+        "chatSessionId": "sess_faf1b99a-14f6-444d-93ec-dbf85faee090",
+        "timestamp": 1795675295202
       }
     ]
   }
