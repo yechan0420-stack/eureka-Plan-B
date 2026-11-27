@@ -7,6 +7,14 @@ import {
   uploadToS3,
 } from './apiClient'
 
+// 이 테스트는 실제 fetch 네트워크 경로(/uploads → S3 → /search)를 검증한다.
+// frontend/.env 의 VITE_USE_MOCK=true(로컬 데모용)가 apiClient 의 Mock 분기를
+// 켜면 fetch 가 호출되지 않으므로, 여기서는 isMockEnabled 를 false 로 고정해
+// 실제 네트워크 경로를 타게 한다(앱 코드·.env 는 변경하지 않는다).
+vi.mock('./mockApi', async () => {
+  const actual = await vi.importActual<typeof import('./mockApi')>('./mockApi')
+  return { ...actual, isMockEnabled: () => false }
+})
 // task 21.1 API 클라이언트 단위 테스트 — fetch 를 모킹하여 3단계 흐름을 검증한다
 // (Req 4.1, 4.3, 21.5 / design.md "API 클라이언트").
 // 확인 항목:
